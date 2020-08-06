@@ -68,7 +68,7 @@ class Cat4 extends Animal4 with Dog4 {//reusing another class
 void code4_4() {
   print("----------------------------------------------");
   print("----------------------------------------------");
-  print("Code 4.3");
+  print("Code 4.4");
   var cat = Cat4();
   cat.name = "Meaow";
   cat.showName();
