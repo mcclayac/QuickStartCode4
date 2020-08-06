@@ -14,9 +14,67 @@ void main(List<String> arguments) {
   code4_2();
   //Multilevel Inheritance
   code4_3();
+  // Mixins
+  code4_4();
+
 
   
   
+}
+//----------------------------------------------
+//----------------------------------------------
+class Animal4 {
+  String name = "Animal";
+  Animal4(){
+    print("I am Animal class constructor.");
+  }
+  Animal4.namedConstructor(){
+    print("This is parent animal named constructor.");
+  }
+  void showName(){
+    print(this.name);
+  }
+  void eat(){
+    print("Animals eat everything depending on what type it is.");
+  }
+}
+
+class Dog4 {
+  void canRun(){
+    print("I can run.");
+  }
+}
+
+class Cat4 extends Animal4 with Dog4 {//reusing another class
+  //overriding parent constructor
+  //although constructors are not inherited
+  Cat4() : super(){
+    print("I am child cat class overriding super Animal class.");
+  }
+  Cat4.namedCatConstructor() : super.namedConstructor(){
+    print("The child cat named constructor overrides the parent animal named constructor.");
+  }
+  @override
+  void showName(){
+    print("Hi from cat.");
+  }
+  @override
+  void eat(){
+    super.eat();
+    print("Cat doesn't eat vegetables..");
+  }
+}
+
+void code4_4() {
+  print("----------------------------------------------");
+  print("----------------------------------------------");
+  print("Code 4.3");
+  var cat = Cat4();
+  cat.name = "Meaow";
+  cat.showName();
+  cat.eat();
+  var anotherCat = Cat4.namedCatConstructor();
+  anotherCat.canRun();
 }
 //----------------------------------------------
 //----------------------------------------------
